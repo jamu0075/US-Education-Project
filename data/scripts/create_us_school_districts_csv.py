@@ -12,7 +12,7 @@ SCHEMA (list of str): the desired column headers gathered from the raw data docu
 """
 RAW_PATH = "../data_raw/"
 CLEAN_PATH = "../data_clean/"
-CLEAN_NAME = "us_school_districts"
+CLEAN_NAME = "us_school_districts.csv"
 
 #Desired columns from original XLS - STATE and YRDATA are new columns
 SCHEMA = ['STATE',
@@ -21,36 +21,23 @@ SCHEMA = ['STATE',
 'YRDATA',
 'TOTALREV',
 'TFEDREV',
-'FEDRCOMP',
-'FEDRSPEC',
-'FEDRNUTR',
-'FEDROTHR',
 'TSTREV',
-'STRFORM',
-'STRSPEC',
-'STRTRANS',
-'STROTHER',
 'TLOCREV',
 'LOCRTAX',
 'LOCRPROP',
 'LOCREVPAR',
-'LOCREVCICO',
-'LOCREVOSCH',
-'LOCRCHAR',
-'LOCROTHR',
+'PCTTOTAL',
+'PCTFTOT',
+'PCTSTOT',
+'PCTLTOT',
 'TOTALEXP',
 'TCURSPND',
 'TSALWAGE',
 'TEMPBENE',
 'TCURINST',
 'TCURSSVC',
-'TCURONON',
-'DEBTOUT',
-'LONGISSU',
-'LONGRET',
+'PPCSTOT',
 'PPITOTAL',
-'PPISALWG',
-'PPIEMBEN',
 'PPSTOTAL']
 
 def get_year_from_filename(filename):
@@ -78,7 +65,8 @@ def get_year_from_filename(filename):
 
 def get_stateID_from_year(year):
     """
-    Gets the appropriate state identifier column header to add to the SCHEMA
+    Different years have different header names.
+    Gets the appropriate state identifier column header to add to the SCHEMA.
 
     Parameters:
         year (str): the year, used to classify.
@@ -171,7 +159,7 @@ def main():
 
     #Download csv at specified location/name
     print('Exporting...')
-    output.to_csv(CLEAN_PATH + CLEAN_NAME, index=False)
+    output.to_csv(CLEAN_PATH + CLEAN_NAME, index=False, header=True)
 
 
 if __name__ == "__main__":
