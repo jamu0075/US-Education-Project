@@ -10,7 +10,7 @@ CLEAN_PATH (str): the desired location to save the final csv.
 CLEAN_NAME (str): the desired file name.
 SCHEMA (list of str): the desired column headers gathered from the raw data documentation.
 """
-RAW_PATH = "../data_raw/"
+RAW_PATH = "../data_raw/elsec_finance"
 CLEAN_PATH = "../data_clean/"
 CLEAN_NAME = "us_school_districts.csv"
 
