@@ -16,4 +16,4 @@ folder = Path("../data_raw/unsd_shps/")
 shapefiles = folder.glob("tl_2016_*_unsd.shp")
 gdf = (pd.concat([gpd.read_file(shp) for shp in shapefiles])).pipe(gpd.GeoDataFrame)
 
-gdf.to_file('../data_clean/unsd_compiled.shp')
+gdf.to_file('../data_clean/unsd_map/unsd_compiled.shp')
